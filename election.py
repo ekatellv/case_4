@@ -7,10 +7,10 @@ import ru_local as ru
 voter_turnout = 0
 number_votes = [0]
 
-number_voters = int(input('Введите количество избирателей в стране: '))
-number_candidates = int(input('Введите количество кандидатов, участвующих в выборах: '))
-number_polling_stations = int(input('Введите количество избирательных участков в стране: '))
-print('Введите результаты на избирательных участках. Вводите через пробел, первое число – кол-во испорченных бюллетеней, далее данные о кандидатах по списку')
+number_voters = int(input(ru.who_can_vote))
+number_candidates = int(input(ru.amount_candidates))
+number_polling_stations = int(input(ru.amount_pstations))
+print(ru.results_rules)
 
 for i in range(number_candidates):
     number_votes.append(0)
