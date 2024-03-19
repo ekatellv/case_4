@@ -25,6 +25,12 @@ for i in range(number_polling_stations):
         voter_turnout += int(results_polling_stations[j])
         number_votes[j] += int(results_polling_stations[j])
         
+print('Процент явки:', round(voter_turnout / number_voters * 100, 2), '%')
+print ('Джеки Чан набрал', round(number_votes[1] / voter_turnout * 100, 2), '%')
+print ('Кощей Бессмертный набрал', round(number_votes[2] / voter_turnout * 100, 2), '%')
+print ('Карлсон набрал', round(number_votes[3] / voter_turnout * 100, 2), '%')
+print ('Райан Гослинг набрал', round(number_votes[4] / voter_turnout * 100, 2), '%')
+print ('Испорченные бюллетени', round(number_votes[0] / voter_turnout * 100, 2), '%')
 
 if check_turnout(voter_turnout,number_voters):
     print('Не набран минимальный порог явки, выборы недействительны')
@@ -63,5 +69,6 @@ else:
             case 4:
                 print("Райан Гослинг")
 
-
+date_inauguration = '25 октября' if voter_turnout / number_voters > 0.5 and number_votes[max_candidate(number_voters)] / voter_turnout > 0.5 else '15 ноября'
+print('Инаугурация состоится', date_inauguration)
 
