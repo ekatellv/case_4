@@ -26,8 +26,8 @@ for i in range(number_polling_stations):
         number_votes[j] += int(results_polling_stations[j])
         
 print(ru.procent_turnout, round(voter_turnout / number_voters * 100, 2), '%')
-print (, round(number_votes[1] / voter_turnout * 100, 2), '%')
-print ('Кощей Бессмертный набрал', round(number_votes[2] / voter_turnout * 100, 2), '%')
+print (ru.jackie_chan, round(number_votes[1] / voter_turnout * 100, 2), '%')
+print (ru.koschei, round(number_votes[2] / voter_turnout * 100, 2), '%')
 print ('Карлсон набрал', round(number_votes[3] / voter_turnout * 100, 2), '%')
 print ('Райан Гослинг набрал', round(number_votes[4] / voter_turnout * 100, 2), '%')
 print ('Испорченные бюллетени', round(number_votes[0] / voter_turnout * 100, 2), '%')
@@ -40,9 +40,9 @@ else:
         print('Ни один кандидат не набрал более 50% голосов, необходимо провести второй тур выборов. Участники второго тура: ')
         match max_candidate(number_voters):
             case 1:
-                print("Джеки Чан")
+                print(ru.jackie_chan)
             case 2:
-                print("Кощей Бессмертный")
+                print(ru.koschei)
             case 3:
                 print("Карлсон")
             case 4:
@@ -50,7 +50,7 @@ else:
         number_votes[max_candidate(number_voters)] = -1
         match max_candidate(number_voters):
             case 1:
-                print("Джеки Чан")
+                print(ru.jackie_chan)
             case 2:
                 print("Кощей Бессмертный")
             case 3:
@@ -61,7 +61,7 @@ else:
         print('По итогам выборов следующий президент:')
         match max_candidate(number_voters):
             case 1:
-                print("Джеки Чан")
+                print(ru.jackie_chan) 
             case 2:
                 print("Кощей Бессмертный")
             case 3:
