@@ -14,9 +14,9 @@ def max_candidate(number_voters):
 voter_turnout = 0
 number_votes = [0, 0, 0, 0, 0]
 
-number_voters = int(input(ru.who_can_vote))
-number_polling_stations = int(input(ru.amount_pstations))
-print(ru.results_rules)
+number_voters = int(input(ru.WHO_CAN_VOTE))
+number_polling_stations = int(input(ru.AMOUNT_PSTATION))
+print(ru.RESULTS_RULES)
 
 for i in range(number_polling_stations):
     s = input()
@@ -25,50 +25,50 @@ for i in range(number_polling_stations):
         voter_turnout += int(results_polling_stations[j])
         number_votes[j] += int(results_polling_stations[j])
         
-print(ru.procent_turnout, round(voter_turnout / number_voters * 100, 2), '%')
-print (ru.jackie_chan, round(number_votes[1] / voter_turnout * 100, 2), '%')
-print (ru.koschei, round(number_votes[2] / voter_turnout * 100, 2), '%')
-print ('Карлсон набрал', round(number_votes[3] / voter_turnout * 100, 2), '%')
-print ('Райан Гослинг набрал', round(number_votes[4] / voter_turnout * 100, 2), '%')
-print ('Испорченные бюллетени', round(number_votes[0] / voter_turnout * 100, 2), '%')
+print(ru.PROCENT_TURNOUT, round(voter_turnout / number_voters * 100, 2), '%')
+print (ru.JACKIE_CHAN, round(number_votes[1] / voter_turnout * 100, 2), '%')
+print (ru.KOSCHEY, round(number_votes[2] / voter_turnout * 100, 2), '%')
+print (ru.KARLSON, round(number_votes[3] / voter_turnout * 100, 2), '%')
+print (ru.RAYAN_GOSLING, round(number_votes[4] / voter_turnout * 100, 2), '%')
+print (ru.SPOILED_BALLOT, round(number_votes[0] / voter_turnout * 100, 2), '%')
 
 if check_turnout(voter_turnout,number_voters):
-    print('Не набран минимальный порог явки, выборы недействительны')
+    print(ru.NOT_MIN_TURNOUT)
 else:
     number_votes[0] = 0
     if number_votes[max_candidate(number_voters)] / voter_turnout < 0.5:
-        print('Ни один кандидат не набрал более 50% голосов, необходимо провести второй тур выборов. Участники второго тура: ')
+        print(NOT_MIN_VOTES)
         match max_candidate(number_voters):
             case 1:
-                print(ru.jackie_chan)
+                print(ru.JACKIE_CHAN)
             case 2:
-                print(ru.koschei)
+                print(ru.KOSCHEY)
             case 3:
-                print("Карлсон")
+                print(ru.KARLSON)
             case 4:
-                print("Райан Гослинг")
+                print(ru.RAYAN_GOSLING )
         number_votes[max_candidate(number_voters)] = -1
         match max_candidate(number_voters):
-            case 1:
-                print(ru.jackie_chan)
+                case 1:
+                print(ru.JACKIE_CHAN)
             case 2:
-                print("Кощей Бессмертный")
+                print(ru.KOSCHEY)
             case 3:
-                print("Карлсон")
+                print(ru.KARLSON)
             case 4:
-                print("Райан Гослинг")
+                print(ru.RAYAN_GOSLING )
     else:
-        print('По итогам выборов следующий президент:')
+        print(ru.NEXT_PRESIDENT)
         match max_candidate(number_voters):
-            case 1:
-                print(ru.jackie_chan) 
+                 case 1:
+                print(ru.JACKIE_CHAN)
             case 2:
-                print("Кощей Бессмертный")
+                print(ru.KOSCHEY)
             case 3:
-                print("Карлсон")
+                print(ru.KARLSON)
             case 4:
-                print("Райан Гослинг")
+                print(ru.RAYAN_GOSLING )
 
-date_inauguration = '25 октября' if voter_turnout / number_voters > 0.5 and number_votes[max_candidate(number_voters)] / voter_turnout > 0.5 else '15 ноября'
-print('Инаугурация состоится', date_inauguration)
+date_inauguration = ru.DATA if voter_turnout / number_voters > 0.5 and number_votes[max_candidate(number_voters)] / voter_turnout > 0.5 else ru.DATA_1
+print(ru.INAUGURATION, date_inauguration)
 
